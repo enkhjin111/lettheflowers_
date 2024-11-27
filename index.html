@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Page</title>
+    <style>
+        /* Common background style */
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #001848, #000);
+        }
+
+        /* Intro Page Styles */
+        .intro {
+            position: relative;
+            width: 50vmin;
+            height: 50vmin;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 50px #5e5cff, 0 0 100px #b497ff;
+            animation: pulse 3s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1.5) contrast(1.2) saturate(1.8);
+        }
+
+        .content {
+            position: relative;
+            color: white;
+            text-align: center;
+            z-index: 2; /* Ensures it's above the image */
+        }
+
+        h1 {
+            font-size: 3em; /* Reduced size to fit inside circle */
+            margin: 0;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 1);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-align: center;
+            text-transform: uppercase;
+            animation: glow 3s infinite alternate;
+        }
+
+        p {
+            font-size: 2em; /* Adjusted size for balance */
+            margin-top: 10px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 1);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 50px #5e5cff, 0 0 100px #9e9fff;
+            }
+            25% {
+                transform: scale(1.1);
+                box-shadow: 0 0 70px #9e9fff, 0 0 140px #001848;
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 90px #5e5cff, 0 0 200px #b497ff;
+            }
+            75% {
+                transform: scale(1.1);
+                box-shadow: 0 0 70px #9e9fff, 0 0 140px #5e5cff;
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 50px #5e5cff, 0 0 100px #b497ff;
+            }
+        }
+
+        .flower {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vmin;
+            height: 200vmin;
+            pointer-events: none;
+            animation: spin 12s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .petal {
+            position: absolute;
+            width: 15vmin;
+            height: 45vmin;
+            background: linear-gradient(to bottom, #9e9fff, #5e5cff, #001848);
+            border-radius: 50%;
+            transform-origin: 50% 100%;
+            box-shadow: 0 0 15px #9e9fff, 0 0 30px #5e5cff;
+        }
+
+        /* Arrange petals around the circle */
+        .petal:nth-child(1) { transform: rotate(0deg); }
+        .petal:nth-child(2) { transform: rotate(30deg); }
+        .petal:nth-child(3) { transform: rotate(60deg); }
+        .petal:nth-child(4) { transform: rotate(90deg); }
+        .petal:nth-child(5) { transform: rotate(120deg); }
+        .petal:nth-child(6) { transform: rotate(150deg); }
+        .petal:nth-child(7) { transform: rotate(180deg); }
+        .petal:nth-child(8) { transform: rotate(210deg); }
+        .petal:nth-child(9) { transform: rotate(240deg); }
+        .petal:nth-child(10) { transform: rotate(270deg); }
+        .petal:nth-child(11) { transform: rotate(300deg); }
+        .petal:nth-child(12) { transform: rotate(330deg); }
+
+        /* Main Page Content */
+        .main-page {
+            display: none; /* Hidden initially */
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .rays {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0) 60%, #9e9fff 90%);
+            filter: blur(30px);
+            animation: rotate 10s linear infinite;
+        }
+
+        
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 30px #5e5cff, 0 0 60px #b497ff;
+            }
+            50% {
+                box-shadow: 0 0 60px #9e9fff, 0 0 120px #e0c7ff;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .content {
+            position: absolute;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Section -->
+    <div class="intro" id="intro">
+        <img src="/mnt/data/b00f275bfe7981b9610f9e5a1fddd131.jpg" alt="Neon Intro">
+        <div class="content">
+            <p></p>
+            <h1>Let the Flowers<br>Fall Where They May</h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="flower">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+    <div class="main-page"></div>
+    <div class="rays"></div>
+
+
+      <script>
+    // Transition to Main Page
+    setTimeout(() => {
+      // Hide the intro page
+      document.getElementById('intro').style.display = 'none';
+
+      // Show the main page
+      // document.getElementById('mainPage').style.display = 'flex'; // Assuming you don't have content yet
+
+      // Hide the flower and petals with fade-out animation
+      document.querySelector('.flower').style.opacity = 0;
+      document.querySelectorAll('.petal').forEach(petal => {
+        petal.style.opacity = 0;
+      });
+    }, 7000);
+  </script>
+
+</body>
+</html>
